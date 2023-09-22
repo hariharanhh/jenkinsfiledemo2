@@ -1,0 +1,26 @@
+pipeline{
+    agent any 
+    stages{
+        stage('Build'){
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test'){
+            steps{
+                echoo 'Testing..'
+                
+            }
+        }
+        stage('Deploy'){
+            steps {
+                echo'Deploying....'
+            }
+        }
+            }
+        }
+         post{
+             failure{
+          emailext body: 'pipelines', subject: 'Jenkins', to: 'hariharanhh311@gmail.com'
+        }
+        }
